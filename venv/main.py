@@ -3,20 +3,30 @@ from telebot import formatting
 from telebot import types
 import usercleaning as uc
 import genbuttons as gb
-
+import os
+import dbmod as db
 
 bot = TeleBot('')
-users = {}
 
 class MyBot():
     def __init__(self):
         print("Started")
         self.wait_for_data = 0
 
-
     @bot.message_handler(commands=['start'])
     def start(message):
+        db.add_line(message.chat.id, "Amogus", 0, "desc")
         bot.send_message(message.chat.id, '<b>Привет</b>', parse_mode='html')
+
+    @bot.message_handler(commands=['show'])
+    def show(message):
+        db.show_all()
+        bot.send_message(message.chat.id, '<b>На</b>', parse_mode='html')
+
+    @bot.message_handler(commands=['kill324'])
+    def kill(message):
+        bot.send_message(message.chat.id, '<b>Пока</b>', parse_mode='html')
+        os._exit(0)
 
     @bot.message_handler(commands=['console'])
     def console(message):
@@ -241,7 +251,18 @@ class MyBot():
                                      "🚫Отмена операции",
                                      reply_markup=markup)
             bot.wait_for_data = 0
-			
+
+
+
+    """
+    @bot.message_handler(commands=['button_link'])
+    def button_link(message):
+        keyboard = types.InlineKeyboardMarkup()
+        url_button = types.InlineKeyboardButton(text="Перейти на Яндекс", url="https://ya.ru")
+        keyboard.add(url_button)
+        bot.send_message(message.chat.id, "Привет! Нажми на кнопку и перейди в поисковик.", reply_markup=keyboard)
+    
+    """
 objBot = MyBot()
 
 timer = 100
