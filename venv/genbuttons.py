@@ -6,8 +6,8 @@ class GenButtons():
 
     def generate(self):
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-        bttn = types.KeyboardButton(text='/init')
-        bttn2 = types.KeyboardButton(text='/delete')
+        #bttn = types.KeyboardButton(text='/init')
+        #bttn2 = types.KeyboardButton(text='/delete')
 
         bttn3 = types.KeyboardButton(text='/progress')
         bttn4 = types.KeyboardButton(text='/done')
@@ -22,7 +22,7 @@ class GenButtons():
 
         bttn10 = types.KeyboardButton(text='/help')
 
-        markup.row(bttn, bttn2)
+        #markup.row(bttn, bttn2)
         markup.add(bttn10)
         markup.row(bttn3, bttn4)
         markup.row(bttn6, bttn5, bttn9)
