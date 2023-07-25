@@ -131,7 +131,7 @@ def allHandlers_add(message):
         gen = gb.GenButtons()
         markup = gen.generate()
         bot.send_message(message.chat.id,
-                         f'Сделана задача {kom[1]} для пользователя номер {message.chat.id}',
+                         f'Сделана задача {kom[0]} для пользователя номер {message.chat.id}',
                          reply_markup=markup)
         bot.wait_for_data = 0
     # REMOVE DC
@@ -140,7 +140,7 @@ def allHandlers_add(message):
         gen = gb.GenButtons()
         markup = gen.generate()
         bot.send_message(message.chat.id,
-                         f'Очищена задача {kom[1]} для пользователя номер {message.chat.id}',
+                         f'Очищена задача {message.text} для пользователя номер {message.chat.id}',
                          reply_markup=markup)
         bot.wait_for_data = 0
     # MARK DC
@@ -149,7 +149,7 @@ def allHandlers_add(message):
         gen = gb.GenButtons()
         markup = gen.generate()
         bot.send_message(message.chat.id,
-                         f'Помечена задача {kom[1]} для пользователя номер {message.chat.id}',
+                         f'Помечена задача {message.text} для пользователя номер {message.chat.id}',
                          reply_markup=markup)
         bot.wait_for_data = 0
     # UN MARK DC
@@ -158,7 +158,7 @@ def allHandlers_add(message):
         gen = gb.GenButtons()
         markup = gen.generate()
         bot.send_message(message.chat.id,
-                         f'Убрана метка задачи {kom[1]} для пользователя номер {message.chat.id}',
+                         f'Убрана метка задачи {message.text} для пользователя номер {message.chat.id}',
                          reply_markup=markup)
         bot.wait_for_data = 0
     # CONFIRM CLEAR UC
